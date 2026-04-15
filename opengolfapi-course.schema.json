@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OpenGolfAPI Course",
+  "type": "object",
+  "required": ["id", "name", "latitude", "longitude", "country", "state"],
+  "properties": {
+    "id": { "type": "string", "format": "uuid" },
+    "name": { "type": "string" },
+    "latitude": { "type": "number", "minimum": -90, "maximum": 90 },
+    "longitude": { "type": "number", "minimum": -180, "maximum": 180 },
+    "country": { "type": "string", "minLength": 2, "maxLength": 2 },
+    "state": { "type": "string" },
+    "city": { "type": ["string", "null"] },
+    "type": { "type": ["string", "null"] },
+    "holes": { "type": ["integer", "null"] },
+    "par": { "type": ["integer", "null"] },
+    "total_yardage": { "type": ["integer", "null"] },
+    "phone": { "type": ["string", "null"] },
+    "website": { "type": ["string", "null"] },
+    "year_built": { "type": ["integer", "null"] },
+    "architect": { "type": ["string", "null"] },
+    "address": { "type": ["string", "null"] },
+    "postal_code": { "type": ["string", "null"] },
+    "osm_id": { "type": ["string", "null"] },
+    "updated_at": { "type": ["string", "null"], "format": "date-time" },
+    "scorecard": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["hole", "par"],
+        "properties": {
+          "hole": { "type": "integer", "minimum": 1, "maximum": 18 },
+          "par": { "type": "integer", "minimum": 3, "maximum": 6 },
+          "handicap_index": { "type": ["integer", "null"], "minimum": 1, "maximum": 18 }
+        }
+      }
+    }
+  }
+}
