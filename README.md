@@ -177,15 +177,11 @@ Dataset releases are tagged with the schema version + date: `v1.0-2026-04-07`
 
 ---
 
-## Extensions (NOT part of core schema)
+## Extended Data
 
-The following fields are intentionally excluded from the open schema. They may be available through commercial APIs (e.g., GolfAGI):
+The following fields are available via the OpenGolfAPI REST and MCP endpoints:
 
-- Tee ratings, slopes, yardages per tee
-- Monthly climate/weather data
-- Nearby points of interest
-- Difficulty rankings
-- Real-time weather
-- Booking/tee time links
-- Course condition data
-- GPS-refined geometry
+- Tee ratings, slopes, yardages per tee — `/v1/courses/:id/tees`
+- Monthly climate/weather data — `/v1/courses/:id/climate`
+- Nearby points of interest — `/v1/courses/:id/nearby`
+- Full hole-by-hole data — `/v1/courses/:id/holes`
